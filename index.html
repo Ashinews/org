@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ashibaba | خدمات به ایرانیان خارج از کشور</title>
-<meta name="description" content="خدمات ایرانیان خارج از کشور در تهران؛ پیگیری امور اداری، تهیه کالا و هماهنگی خدمات حضوری از راه دور با Ashibaba.">
+<title>Ashibaba | هر کاری در تهران دارید، ما انجام می‌دهیم</title>
+<meta name="description" content="Ashibaba؛ انجام کارهای حضوری در تهران برای ایرانیان خارج از کشور و شهرستان‌ها: خرید، تحویل مدارک، قطعه خودرو، بازدید ملک، هدیه فوری و همراهی بیمار.">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#101c30">
 
@@ -13,9 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* ===== زاویه قابل انیمیت برای حلقه‌های رنگی ===== */
-@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
-
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
@@ -48,27 +45,33 @@ header{border-bottom:1px solid #eae5db;background:#faf8f3}
 /* ===== لوگو: حلقه رنگی چرخان + درخشش + شناور ===== */
 .logo{
   position:relative;isolation:isolate;
-  width:46px;height:46px;border-radius:14px;background:#101c30;
+  width:46px;height:46px;border-radius:50%;background:#101c30;
   display:grid;place-items:center;color:#d7b77b;font:700 27px Georgia,serif;
   animation:logoGlow 6s linear infinite, logoFloat 4s ease-in-out infinite;
   transition:transform .4s cubic-bezier(.2,.9,.3,1.4);
 }
+/* حلقه رنگی گرد و چرخان (با transform؛ روی همه مرورگرها زنده کار می‌کند) */
 .logo::before{
-  content:"";position:absolute;inset:-3px;border-radius:17px;z-index:-2;
-  background:conic-gradient(from var(--a),#d7b77b,#ff6ec7,#6ec1ff,#7dffb2,#d7b77b);
-  animation:spin 3.5s linear infinite;
+  content:"";position:absolute;inset:-4px;border-radius:50%;z-index:-2;
+  background:conic-gradient(#d7b77b,#ff6ec7,#6ec1ff,#7dffb2,#d7b77b);
+  animation:spinT 2.8s linear infinite;
 }
 .logo::after{
-  content:"";position:absolute;inset:0;border-radius:14px;z-index:-1;
+  content:"";position:absolute;inset:0;border-radius:50%;z-index:-1;
   background:radial-gradient(circle at 30% 25%,#22364f,#101c30 75%);
 }
 .logo:hover{transform:scale(1.12) rotate(-6deg)}
-@keyframes spin{to{--a:360deg}}
+@keyframes spinT{to{transform:rotate(360deg)}}
+/* موج نور: از لوگو می‌رود بیرون و برمی‌گردد، با رنگ‌های متغیر */
 @keyframes logoGlow{
-  0%,100%{box-shadow:0 0 14px #d7b77b99,0 0 30px #d7b77b44;color:#d7b77b}
-  25%{box-shadow:0 0 14px #ff6ec799,0 0 30px #ff6ec744;color:#f3d9a0}
-  50%{box-shadow:0 0 14px #6ec1ff99,0 0 30px #6ec1ff44;color:#d7b77b}
-  75%{box-shadow:0 0 14px #7dffb299,0 0 30px #7dffb244;color:#f3d9a0}
+  0%{box-shadow:0 0 10px #d7b77bcc,0 0 0 0 #d7b77b99;color:#d7b77b}
+  25%{box-shadow:0 0 18px #ff6ec7cc,0 0 0 9px #ff6ec700;color:#f3d9a0}
+  26%{box-shadow:0 0 10px #ff6ec7cc,0 0 0 0 #ff6ec799}
+  50%{box-shadow:0 0 18px #6ec1ffcc,0 0 0 9px #6ec1ff00;color:#d7b77b}
+  51%{box-shadow:0 0 10px #6ec1ffcc,0 0 0 0 #6ec1ff99}
+  75%{box-shadow:0 0 18px #7dffb2cc,0 0 0 9px #7dffb200;color:#f3d9a0}
+  76%{box-shadow:0 0 10px #7dffb2cc,0 0 0 0 #7dffb299}
+  100%{box-shadow:0 0 18px #d7b77bcc,0 0 0 9px #d7b77b00;color:#d7b77b}
 }
 @keyframes logoFloat{
   0%,100%{translate:0 0}
@@ -142,16 +145,16 @@ h1 span{
 }
 .emblem::before{
   content:"";position:absolute;inset:-7px;border-radius:50%;z-index:-1;
-  background:conic-gradient(from var(--a),transparent 0,#d7b77b 15%,#ff6ec7 35%,#6ec1ff 55%,#7dffb2 70%,transparent 85%);
-  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));
-          mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));
-  animation:spin 5s linear infinite;
+  background:conic-gradient(transparent 0,#d7b77b 15%,#ff6ec7 35%,#6ec1ff 55%,#7dffb2 70%,transparent 85%);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));
+          mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));
+  animation:spinT 4s linear infinite;
 }
 .emblem::after{
   content:"";position:absolute;inset:-14px;border-radius:50%;z-index:-2;
-  background:conic-gradient(from var(--a),#d7b77b,#ff6ec7,#6ec1ff,#7dffb2,#d7b77b);
+  background:conic-gradient(#d7b77b,#ff6ec7,#6ec1ff,#7dffb2,#d7b77b);
   filter:blur(28px);opacity:.4;
-  animation:spin 5s linear infinite, breathe 4s ease-in-out infinite;
+  animation:spinT 6s linear infinite, breathe 4s ease-in-out infinite;
 }
 @keyframes breathe{50%{opacity:.7;scale:1.06}}
 @keyframes emblemFloat{
@@ -276,6 +279,83 @@ footer h3{color:#e4c994}
 .footer-bottom{border-top:1px solid #ffffff20;padding:20px 0;display:flex;justify-content:space-between;gap:12px;font-size:10px;color:#9ba9ba}
 .footer-bottom span{color:#d7b77b}
 
+/* ===== دکمه شناور واتساپ ===== */
+.wa-float{
+  position:fixed;left:22px;bottom:22px;z-index:98;
+  display:flex;align-items:center;gap:12px;direction:ltr;
+}
+.wa-btn{
+  position:relative;isolation:isolate;
+  width:64px;height:64px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(145deg,#3df07f,#12b34e);
+  display:grid;place-items:center;color:#fff;
+  box-shadow:0 10px 28px #18c15e88,0 0 0 3px #ffffffcc;
+  animation:waWobble 5s ease-in-out infinite;
+  transition:transform .3s cubic-bezier(.2,.9,.3,1.5);
+}
+.wa-btn:hover{transform:scale(1.14) rotate(-8deg)}
+.wa-btn svg{width:34px;height:34px;filter:drop-shadow(0 2px 3px #0003)}
+.wa-btn::before,.wa-btn::after{
+  content:"";position:absolute;inset:0;border-radius:50%;z-index:-1;
+  background:#25d366;animation:waRipple 2.4s ease-out infinite;
+}
+.wa-btn::after{animation-delay:1.2s}
+@keyframes waRipple{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.1);opacity:0}}
+@keyframes waWobble{
+  0%,84%,100%{transform:rotate(0)}
+  88%{transform:rotate(-14deg) scale(1.06)}
+  92%{transform:rotate(12deg) scale(1.06)}
+  96%{transform:rotate(-7deg)}
+}
+.wa-dot{
+  position:absolute;top:2px;right:2px;width:15px;height:15px;border-radius:50%;
+  background:#ff3b5c;border:2px solid #fff;animation:dotBlink 1.6s ease-in-out infinite;
+}
+@keyframes dotBlink{50%{transform:scale(1.3);background:#ff7a93}}
+.wa-label{
+  direction:rtl;background:#fff;color:#101c30;border-radius:14px;
+  padding:9px 15px;font-size:12px;font-weight:700;line-height:1.7;white-space:nowrap;
+  box-shadow:0 8px 24px #101c3025;border:1px solid #e3efe7;
+  animation:labelIn 1s .8s cubic-bezier(.2,.9,.3,1.3) both, labelBob 3.2s 2s ease-in-out infinite;
+  position:relative;
+}
+.wa-label small{display:block;font-weight:500;color:#1a9d4f;font-size:10px}
+.wa-label::before{
+  content:"";position:absolute;left:-6px;top:50%;margin-top:-6px;width:12px;height:12px;
+  background:#fff;border-left:1px solid #e3efe7;border-bottom:1px solid #e3efe7;transform:rotate(45deg);
+}
+@keyframes labelIn{from{opacity:0;transform:translateX(-24px) scale(.85)}to{opacity:1;transform:none}}
+@keyframes labelBob{50%{transform:translateX(5px)}}
+
+/* دکمه سفارش در هیرو */
+.cta-wa{
+  position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;gap:10px;margin-top:26px;
+  padding:13px 26px;border-radius:50px;font-weight:700;font-size:14px;color:#fff;
+  background:linear-gradient(135deg,#25d366,#0ea44a);
+  box-shadow:0 10px 30px #25d36655,0 0 0 1px #ffffff30 inset;
+  animation:ctaGlow 2.8s ease-in-out infinite;
+  transition:transform .3s;
+}
+.cta-wa svg{width:22px;height:22px;flex-shrink:0}
+.cta-wa::after{
+  content:"";position:absolute;top:-20%;bottom:-20%;width:35%;left:-60%;
+  background:linear-gradient(90deg,transparent,#ffffff66,transparent);transform:skewX(-20deg);
+  animation:sweep 3.6s ease-in-out infinite;
+}
+.cta-wa:hover{transform:translateY(-4px) scale(1.04)}
+@keyframes ctaGlow{50%{box-shadow:0 14px 40px #25d366aa,0 0 0 1px #ffffff40 inset}}
+.wa-num{direction:ltr;unicode-bidi:embed;display:inline-block;color:#fff;font-weight:700;letter-spacing:.5px}
+.footer-wa{display:inline-flex;align-items:center;gap:8px;margin-top:6px;color:#7dffb2;font-weight:700;transition:.3s}
+.footer-wa:hover{color:#fff;text-shadow:0 0 12px #25d366}
+
+@media(max-width:600px){
+ .wa-float{left:14px;bottom:16px}
+ .wa-btn{width:58px;height:58px}
+ .wa-label{display:none}
+ .cta-wa{margin-top:22px;font-size:13px;padding:12px 22px}
+}
+
 /* ===== ظاهر شدن موقع اسکرول (فقط وقتی JS فعال است) ===== */
 .js .reveal{
   opacity:0;transform:translateY(34px);
@@ -328,10 +408,9 @@ footer h3{color:#e4c994}
  h1{font-size:27px}
  .brandname{font-size:20px}
 }
+/* انیمیشن‌ها حتی اگر ویندوز «کاهش انیمیشن» داشته باشد فعال می‌مانند؛ فقط اسکرول نرم خاموش می‌شود */
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
- *,*:before,*:after{transition:none!important;animation:none!important}
- .js .reveal{opacity:1;transform:none}
 }
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -359,15 +438,16 @@ footer h3{color:#e4c994}
   <div class="particles" id="particles" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-copy">
-      <div class="eyebrow">خدمات ایرانیان خارج از کشور</div>
-      <h1>ایران، نزدیک‌تر از همیشه؛<br><span>حتی از هزاران کیلومتر دورتر</span></h1>
+      <div class="eyebrow">کارهای تهران، بدون نیاز به حضور شما</div>
+      <h1>هر کاری در تهران دارید،<br><span>ما برایتان انجام می‌دهیم</span></h1>
       <p class="intro">
-        دوری از ایران نباید مانع رسیدگی به کارهای شما باشد.
-        Ashibaba برای هماهنگی امور اداری، تهیه و خرید کالا،
-        پیگیری درخواست‌ها و خدمات حضوری قابل انجام در تهران
-        در کنار شماست؛ بدون نیاز به حضور همیشگی شما در ایران.
+        دور از تهران هستید و کار حضوری دارید؟ Ashibaba برای ایرانیان خارج از کشور
+        و شهرستان‌ها خرید، استعلام قیمت، تحویل مدارک، تهیه قطعه، بازدید ملک،
+        هدیه فوری و همراهی در مراجعات را در تهران انجام می‌دهد؛
+        با گزارش شفاف و پیگیری مرحله‌به‌مرحله.
       </p>
-      <div class="slogan">کارهای شما در ایران، با همراهی ما</div>
+      <div class="slogan">از خرید و تحویل مدارک تا بازدید ملک؛ همه در یک جا</div>
+      <a class="cta-wa" href="https://wa.me/989965552604?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%85%DB%8C%E2%80%8C%D8%AE%D9%88%D8%A7%D9%87%D9%85%20%DB%8C%DA%A9%20%DA%A9%D8%A7%D8%B1%20%D8%AF%D8%B1%20%D8%AA%D9%87%D8%B1%D8%A7%D9%86%20%D8%AB%D8%A8%D8%AA%20%DA%A9%D9%86%D9%85" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>ثبت سفارش در واتساپ</span></a>
     </div>
     <div class="hero-visual">
       <div class="emblem">
@@ -393,7 +473,7 @@ footer h3{color:#e4c994}
     </div>
     <div class="trust-item">
       <div class="trust-icon">✓</div>
-      <div><strong>شفافیت در خدمات</strong><small>هماهنگی پیش از شروع کار</small></div>
+      <div><strong>گزارش شفاف</strong><small>عکس، فیلم و اطلاع‌رسانی مرحله‌ای</small></div>
     </div>
   </div>
 </section>
@@ -401,42 +481,57 @@ footer h3{color:#e4c994}
 <section class="content" id="services">
   <div class="container">
     <div class="label reveal">خدمات ما</div>
-    <h2 class="reveal">برای کارهای ایران، روی ما حساب کنید</h2>
+    <h2 class="reveal">هر کاری در تهران دارید، روی ما حساب کنید</h2>
     <p class="section-desc reveal">
-      از پیگیری امور روزمره تا تهیه کالا و هماهنگی خدمات حضوری؛
-      درخواست شما بررسی می‌شود تا مسیر انجام کار روشن‌تر و ساده‌تر باشد.
+      از ایستادن در صف و تحویل مدارک تا خرید از بازارهای تخصصی،
+      تهیه قطعه و بازدید ملک؛ شما درخواست را می‌گویید و ما در تهران انجامش می‌دهیم.
     </p>
 
     <div class="cards">
       <article class="card reveal">
         <div class="card-num">01</div><div class="card-icon">▤</div>
-        <h3>پیگیری امور اداری</h3>
-        <p>هماهنگی و پیگیری درخواست‌های اداری در تهران و راهنمایی درباره مدارک موردنیاز، مطابق مقررات هر خدمت.</p>
+        <h3>صف و پیگیری امور حضوری</h3>
+        <p>مراجعه به اداره‌ها، ثبت‌نام‌ها و دریافت یا تحویل مدارک به جای شما؛ بدون وقت‌تلف‌کردن در صف، مطابق مقررات هر خدمت.</p>
       </article>
       <article class="card reveal">
         <div class="card-num">02</div><div class="card-icon">◇</div>
-        <h3>خرید و تهیه کالا</h3>
-        <p>کمک به تهیه محصولات از بازار ایران، بررسی مشخصات و هزینه‌ها و هماهنگی خرید پس از تأیید شما.</p>
+        <h3>دستیار خرید ایران</h3>
+        <p>لوازم خانگی، هدیه، وسایل مدرسه و مایحتاج خانواده را سفارش بدهید؛ ما از تهران تهیه می‌کنیم و برایتان ارسال می‌کنیم.</p>
       </article>
       <article class="card reveal">
-        <div class="card-num">03</div><div class="card-icon">⌂</div>
-        <h3>خدمات حضوری در تهران</h3>
-        <p>هماهنگی مراجعه و پیگیری امور قابل انجام به نمایندگی از شما، با رعایت شرایط قانونی و مدارک لازم.</p>
+        <div class="card-num">03</div><div class="card-icon">⚙</div>
+        <h3>تهیه قطعات خودرو</h3>
+        <p>پیدا کردن قطعه‌ی درست، بررسی تطابق با خودروی شما، خرید از تهران و ارسال به هر شهر یا کشور.</p>
       </article>
       <article class="card reveal">
-        <div class="card-num">04</div><div class="card-icon">□</div>
-        <h3>هماهنگی ارسال کالا</h3>
-        <p>بررسی روش‌های بسته‌بندی، تحویل و ارسال کالا با توجه به مقصد، قوانین گمرکی و محدودیت‌های حمل‌ونقل.</p>
+        <div class="card-num">04</div><div class="card-icon">⌂</div>
+        <h3>بازدید و فیلم‌برداری از ملک</h3>
+        <p>ملکی در تهران را از راه دور ببینید؛ فیلم و عکس کامل می‌گیریم و گزارش وضعیت ملک را برایتان می‌فرستیم.</p>
       </article>
       <article class="card reveal">
         <div class="card-num">05</div><div class="card-icon">◎</div>
-        <h3>امور شخصی و خانوادگی</h3>
-        <p>کمک به هماهنگی کارهای شخصی و خانوادگی در ایران و پیگیری درخواست‌ها متناسب با نوع خدمت.</p>
+        <h3>همراهی در بازدید خودرو</h3>
+        <p>پیش از خرید خودرو در تهران، با عکس و فیلم و گزارش وضعیت ظاهری همراه شما هستیم؛ کارشناسی رسمی جداگانه هماهنگ می‌شود.</p>
       </article>
       <article class="card reveal">
         <div class="card-num">06</div><div class="card-icon">✧</div>
-        <h3>خدمات متناسب با نیاز شما</h3>
-        <p>بررسی درخواست‌های دیگر و پیشنهاد راهکار متناسب با شرایط، قوانین و امکانات اجرایی.</p>
+        <h3>هدیه فوری تهران</h3>
+        <p>گل، کیک، عطر، اسباب‌بازی و هدیه‌ی مناسب برای عزیزانتان؛ با امکان تحویل در همان روز در تهران.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">07</div><div class="card-icon">□</div>
+        <h3>خرید از بازارهای تخصصی</h3>
+        <p>خرید از مراکز تخصصی تهران مثل لاله‌زار، امین‌حضور، بازار بزرگ و صالح‌آباد؛ با بررسی مشخصات و قیمت پیش از خرید.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">08</div><div class="card-icon">✚</div>
+        <h3>همراه بیمار و سالمند</h3>
+        <p>همراهی برای مراجعه به بیمارستان، آزمایشگاه و پزشک؛ تا عزیزانتان در تهران تنها نباشند.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-num">09</div><div class="card-icon">◈</div>
+        <h3>استعلام و تحقیق میدانی</h3>
+        <p>قیمت و موجودی کالا را در بازار بررسی می‌کنیم و برای تأمین‌کننده یا عمده‌فروش مناسب، راهنمایی و ارتباط می‌گیریم.</p>
       </article>
     </div>
   </div>
@@ -451,15 +546,15 @@ footer h3{color:#e4c994}
     </div>
     <div class="about-text reveal">
       <div class="label">درباره Ashibaba</div>
-      <h2>همراه ایرانیان دور از وطن</h2>
-      <p>زندگی در خارج از کشور گاهی رسیدگی به امور داخل ایران را دشوار می‌کند. فاصله جغرافیایی، تفاوت ساعت و نیاز به مراجعه حضوری می‌تواند وقت‌گیر باشد.</p>
-      <p>Ashibaba با هدف ساده‌تر کردن این مسیر، خدمات هماهنگی امور موردنیاز ایرانیان خارج از کشور را ارائه می‌کند؛ از تهیه کالا تا پیگیری امور قابل انجام در تهران.</p>
-      <p>شفاف بودن جزئیات درخواست، هزینه‌های مورد توافق و اطلاع‌رسانی درباره مراحل انجام کار، پایه همکاری ماست.</p>
+      <h2>همراه شما در تهران</h2>
+      <p>زندگی در خارج از کشور یا در شهرستان‌ها گاهی رسیدگی به کارهای تهران را وقت‌گیر و دشوار می‌کند. فاصله، تفاوت ساعت و نیاز به مراجعه حضوری همه‌چیز را کندتر می‌کند.</p>
+      <p>Ashibaba با هدف ساده‌تر کردن این مسیر، کارهای حضوری شما در تهران را انجام می‌دهد؛ از خرید و تحویل مدارک تا بازدید ملک، تهیه قطعه و همراهی در مراجعات درمانی.</p>
+      <p>شفاف بودن جزئیات درخواست، هزینه‌های مورد توافق و گزارش مرحله‌به‌مرحله، پایه همکاری ماست.</p>
       <ul class="features">
         <li><span class="tick">✓</span><span>بررسی درخواست و توضیح مراحل پیش از شروع</span></li>
-        <li><span class="tick">✓</span><span>هماهنگی هزینه خدمات و مخارج جانبی</span></li>
-        <li><span class="tick">✓</span><span>توجه به حریم خصوصی و حفاظت از اطلاعات مشتریان</span></li>
-        <li><span class="tick">✓</span><span>انجام امور در چارچوب قوانین و مجوزهای لازم</span></li>
+        <li><span class="tick">✓</span><span>هماهنگی هزینه خدمت و مخارج جانبی پیش از انجام کار</span></li>
+        <li><span class="tick">✓</span><span>ارسال عکس، فیلم و گزارش از مراحل انجام کار</span></li>
+        <li><span class="tick">✓</span><span>توجه به حریم خصوصی و انجام امور در چارچوب قوانین</span></li>
       </ul>
     </div>
   </div>
@@ -473,18 +568,18 @@ footer h3{color:#e4c994}
     <div class="steps">
       <article class="step reveal">
         <div class="stepno">01</div>
-        <h3>بررسی درخواست</h3>
-        <p>نوع خدمت، مدارک موردنیاز و نتیجه مورد انتظار مشخص می‌شود تا امکان انجام کار بررسی شود.</p>
+        <h3>درخواست خود را بگویید</h3>
+        <p>کار موردنظر را توضیح می‌دهید تا نوع خدمت، مدارک لازم و امکان انجام آن بررسی شود.</p>
       </article>
       <article class="step reveal">
         <div class="stepno">02</div>
         <h3>توافق درباره جزئیات</h3>
-        <p>مراحل، هزینه‌ها، زمان تقریبی و شرایط انجام درخواست پیش از شروع هماهنگ می‌شود.</p>
+        <p>مراحل، هزینه‌ها، زمان تقریبی و شرایط انجام کار پیش از شروع، شفاف هماهنگ می‌شود.</p>
       </article>
       <article class="step reveal">
         <div class="stepno">03</div>
-        <h3>اجرا و پیگیری</h3>
-        <p>پس از تأیید و فراهم شدن شرایط لازم، درخواست طبق توافق پیگیری و وضعیت آن اطلاع‌رسانی می‌شود.</p>
+        <h3>انجام کار و گزارش</h3>
+        <p>کار در تهران انجام می‌شود و با عکس، فیلم و پیام، وضعیت آن را مرحله‌به‌مرحله می‌گیرید.</p>
       </article>
     </div>
   </div>
@@ -499,12 +594,13 @@ footer h3{color:#e4c994}
           <span class="logo">A</span>
           <span><span class="brandname">Ashibaba</span><br><span class="brandsmall">YOUR TRUSTED PARTNER IN IRAN</span></span>
         </a>
-        <p>هماهنگی خدمات موردنیاز ایرانیان خارج از کشور، شامل پیگیری امور اداری، تهیه کالا و خدمات حضوری در تهران.</p>
+        <p>انجام کارهای حضوری در تهران برای ایرانیان خارج از کشور و شهرستان‌ها؛ از خرید و تحویل مدارک تا قطعه خودرو، بازدید ملک و همراهی بیمار.</p>
       </div>
       <div>
         <h3>تعهد ما</h3>
         <p>خدمات بر اساس نوع درخواست، امکان اجرایی و قوانین جاری مشخص می‌شوند. امور نیازمند وکالت یا مجوز خاص، مستلزم مدارک معتبر هستند.</p>
         <p>هزینه خرید کالا، حمل‌ونقل و سایر مخارج جانبی، حسب مورد جداگانه هماهنگ می‌شوند.</p>
+        <p>سفارش و پیگیری در واتساپ:<br><a class="footer-wa" href="https://wa.me/989965552604?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%85%DB%8C%E2%80%8C%D8%AE%D9%88%D8%A7%D9%87%D9%85%20%DB%8C%DA%A9%20%DA%A9%D8%A7%D8%B1%20%D8%AF%D8%B1%20%D8%AA%D9%87%D8%B1%D8%A7%D9%86%20%D8%AB%D8%A8%D8%AA%20%DA%A9%D9%86%D9%85" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span class="wa-num">+98 996 555 2604</span></a></p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -514,13 +610,16 @@ footer h3{color:#e4c994}
   </div>
 </footer>
 
+<a class="wa-float" href="https://wa.me/989965552604?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%85%DB%8C%E2%80%8C%D8%AE%D9%88%D8%A7%D9%87%D9%85%20%DB%8C%DA%A9%20%DA%A9%D8%A7%D8%B1%20%D8%AF%D8%B1%20%D8%AA%D9%87%D8%B1%D8%A7%D9%86%20%D8%AB%D8%A8%D8%AA%20%DA%A9%D9%86%D9%85" target="_blank" rel="noopener" aria-label="سفارش و پیگیری در واتساپ">
+  <span class="wa-btn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span class="wa-dot"></span></span>
+  <span class="wa-label">سفارش و پیگیری در واتساپ<small>● آنلاین · پاسخ سریع</small></span>
+</a>
+
 <script>
 (function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   /* ذرات نورانی شناور در هیرو */
   var box = document.getElementById('particles');
-  if(box && !reduce){
+  if(box){
     for(var i=0;i<22;i++){
       var p = document.createElement('i');
       p.style.left = Math.random()*100 + '%';
