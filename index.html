@@ -478,7 +478,45 @@ footer h3{color:#e4c994}
   border:1px solid #d7b77b88;color:#e4c994;font-size:11px;line-height:2;
 }
 .person-card p{margin-top:14px;font-size:12.5px;line-height:2.5;color:#c5ced9}
-.team-note{max-width:760px;margin-top:36px;padding-right:20px;border-right:3px solid #ffb21e;font-size:13.5px;line-height:2.7;color:#dbe3ec}
+.team-vibe-card{
+  max-width:860px;margin:36px auto 0;padding:22px 26px;border-radius:20px;
+  background:linear-gradient(135deg,rgba(255,178,30,.09) 0%,rgba(110,193,255,.05) 50%,rgba(255,255,255,.03) 100%);
+  border:1px solid rgba(255,178,30,.28);box-shadow:0 14px 36px rgba(0,0,0,.28);
+  position:relative;overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s;
+}
+.team-vibe-card:hover{
+  transform:translateY(-3px);border-color:rgba(255,178,30,.55);
+  box-shadow:0 18px 44px rgba(255,178,30,.15);
+}
+.team-vibe-card::before{
+  content:"";position:absolute;top:-40px;left:-40px;width:120px;height:120px;
+  background:radial-gradient(circle,rgba(255,178,30,.25),transparent 70%);border-radius:50%;pointer-events:none;
+}
+.team-vibe-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.team-vibe-icon{
+  width:46px;height:46px;border-radius:14px;flex-shrink:0;
+  background:linear-gradient(135deg,#ffb21e,#ff6ec7);
+  display:flex;align-items:center;justify-content:center;color:#101c30;
+  box-shadow:0 6px 18px rgba(255,178,30,.35);
+  animation:logoFloat 3.5s ease-in-out infinite;
+}
+.team-vibe-title strong{display:block;color:#fff;font-size:15px;font-weight:700;line-height:1.6}
+.team-vibe-title span{display:block;color:#e4c994;font-size:12px;margin-top:2px}
+.team-vibe-desc{color:#c5ced9;font-size:13px;line-height:2.2;margin:0 0 14px}
+.team-vibe-tags{display:flex;flex-wrap:wrap;gap:8px}
+.vibe-tag{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11.5px;padding:4px 12px;border-radius:20px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  color:#dbe3ec;transition:background .25s,border-color .25s,color .25s;
+}
+.vibe-tag:hover{background:rgba(255,178,30,.15);border-color:#ffb21e;color:#ffb21e}
+@media(max-width:600px){
+  .team-vibe-card{padding:18px 16px;margin-top:26px}
+  .team-vibe-title strong{font-size:14px}
+  .team-vibe-desc{font-size:12px;line-height:2.1}
+  .vibe-tag{font-size:11px;padding:3px 10px}
+}
 .promises{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:14px}
 .promise{
   padding:22px 18px;border-radius:18px;background:#ffffff0d;border:1px solid #ffffff1a;
@@ -500,7 +538,7 @@ footer h3{color:#e4c994}
  .people{grid-template-columns:1fr}
  .promises{grid-template-columns:1fr}
  .photo{width:148px;height:148px}
- .team-lead,.team-note{font-size:13px}
+ .team-lead{font-size:13px}
  .team-cta{display:flex;justify-content:center}
 }
 
@@ -546,7 +584,7 @@ footer h3{color:#e4c994}
   border:1px solid #d7b77b88;color:#e4c994;font-size:11px;line-height:2;
 }
 .person-card p{margin-top:14px;font-size:12.5px;line-height:2.5;color:#c5ced9}
-.team-note{max-width:760px;margin-top:36px;padding-right:20px;border-right:3px solid #ffb21e;font-size:13.5px;line-height:2.7;color:#dbe3ec}
+
 .promises{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:14px}
 .promise{
   padding:22px 18px;border-radius:18px;background:#ffffff0d;border:1px solid #ffffff1a;
@@ -568,7 +606,7 @@ footer h3{color:#e4c994}
  .people{grid-template-columns:1fr}
  .promises{grid-template-columns:1fr}
  .photo{width:148px;height:148px}
- .team-lead,.team-note{font-size:13px}
+ .team-lead{font-size:13px}
  .team-cta{display:flex;justify-content:center}
 }
 
@@ -1003,11 +1041,31 @@ footer h3{color:#e4c994}
       </article>
     </div>
 
-    <p class="team-note reveal">
-      ما با هم شریک و فامیلیم و همین باعث شده روی اعتماد، روراستی و پاسخ‌گویی حساس باشیم.
-      وقتی کاری را به ما می‌سپارید، پشتش سه چهره واقعی با اسم، چهره و هویت مشخص ایستاده‌اند،
-      نه یک افراد بی هویت
-    </p>
+        <div class="team-vibe-card reveal">
+      <div class="team-vibe-head">
+        <div class="team-vibe-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <div class="team-vibe-title">
+          <strong>۳ رفیقِ پای‌کار، صفر واسطه، ۱۰۰٪ کارراه‌انداز! ☕⚡</strong>
+          <span>پشت Ashibaba نه هوش مصنوعی بی‌روحه نه شرکت عریض‌وطویل؛ خودِ ماییم!</span>
+        </div>
+      </div>
+      <p class="team-vibe-desc">
+        هر کاری در تهران داشته باشید، از پیدا کردن قطعه‌ی نایاب در دل بازار تا انجام امور حضوری، اداری و شخصی؛
+        خودمون آستین بالا می‌زنیم، پیگیری می‌کنیم و با عکس و فیلم مرحله‌به‌مرحله کنارتونیم. مثل اینه که رفیق فابریک‌تون تو تهران باشه!
+      </p>
+      <div class="team-vibe-tags">
+        <span class="vibe-tag">☕ سوخت روزانه: چای دبش بازار</span>
+        <span class="vibe-tag">👟 پایگاه: کف خیابون‌های تهران</span>
+        <span class="vibe-tag">🤝 مرام ما: کار شما = کار رفیق خودمون</span>
+      </div>
+    </div>
 
     <div class="label reveal" style="margin-top:44px">قولی که می‌دهیم</div>
     <div class="promises">
