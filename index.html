@@ -727,6 +727,183 @@ footer h3{color:#e4c994}
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
 }
+
+/* ===== مودال شیک انتخاب پشتیبان واتساپ ===== */
+.wa-modal-backdrop{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(5,10,20,.78);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .3s ease,visibility .3s ease;
+  padding:16px;
+}
+.wa-modal-backdrop.open{
+  opacity:1;visibility:visible;pointer-events:auto;
+}
+.wa-modal-dialog{
+  position:relative;width:100%;max-width:480px;
+  background:linear-gradient(165deg,rgba(22,35,58,.96),rgba(11,18,32,.98));
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:24px;
+  padding:28px 22px 22px;
+  box-shadow:0 25px 60px -10px rgba(0,0,0,.7),0 0 0 1px rgba(37,211,102,.15) inset;
+  transform:scale(.92) translateY(20px);
+  transition:transform .35s cubic-bezier(.16,1,.3,1);
+  text-align:center;
+}
+.wa-modal-backdrop.open .wa-modal-dialog{
+  transform:scale(1) translateY(0);
+}
+.wa-modal-close{
+  position:absolute;top:16px;left:16px;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  color:#e0e8f5;display:inline-flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:.25s;padding:0;line-height:1;
+}
+.wa-modal-close:hover{
+  background:rgba(239,68,68,.2);border-color:#ef4444;color:#fff;
+  transform:rotate(90deg);
+}
+.wa-modal-icon-wrap{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+  width:62px;height:62px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(37,211,102,.2),rgba(14,164,74,.08));
+  border:1px solid rgba(37,211,102,.35);
+  box-shadow:0 0 25px rgba(37,211,102,.3);
+  margin-bottom:12px;color:#25d366;
+}
+.wa-modal-icon-wrap svg{width:32px;height:32px}
+.wa-modal-status-dot{
+  position:absolute;bottom:3px;right:3px;
+  width:12px;height:12px;border-radius:50%;
+  background:#25d366;border:2px solid #101c30;
+  box-shadow:0 0 8px #25d366;
+  animation:pulseDot 2s infinite;
+}
+@keyframes pulseDot{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.25);opacity:.7}
+}
+.wa-modal-badge{
+  display:inline-block;padding:3px 12px;border-radius:20px;
+  background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);
+  color:#7dffb2;font-size:11.5px;font-weight:700;margin-bottom:10px;
+}
+.wa-modal-title{
+  font-size:20px;font-weight:900;color:#fff;margin:0 0 6px;letter-spacing:-.3px;
+}
+.wa-modal-desc{
+  font-size:13px;color:#a4b3cb;line-height:1.6;margin:0 0 20px;
+}
+.wa-modal-cards{
+  display:flex;flex-direction:column;gap:12px;text-align:right;
+}
+.wa-card{
+  display:flex;align-items:center;gap:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:18px;padding:14px 16px;
+  text-decoration:none;color:#fff;
+  transition:all .28s cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:hidden;
+}
+.wa-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,rgba(37,211,102,.12),transparent 65%);
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.wa-card:hover{
+  background:rgba(255,255,255,.07);
+  border-color:rgba(37,211,102,.45);
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px -6px rgba(37,211,102,.25);
+}
+.wa-card:hover::before{opacity:1}
+.wa-card-avatar{
+  position:relative;width:44px;height:44px;border-radius:14px;flex-shrink:0;
+  background:linear-gradient(135deg,#25d366,#0ea44a);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:16px;box-shadow:0 4px 14px rgba(37,211,102,.35);
+}
+.wa-online-indicator{
+  position:absolute;bottom:-2px;right:-2px;
+  width:10px;height:10px;border-radius:50%;
+  background:#25d366;border:2px solid #142238;
+}
+.wa-card-info{flex:1;min-width:0}
+.wa-card-role-row{
+  display:flex;align-items:center;gap:8px;margin-bottom:3px;flex-wrap:wrap;
+}
+.wa-card-name{
+  font-size:15px;font-weight:800;color:#fff;
+}
+.wa-card-tag{
+  font-size:11px;padding:2px 8px;border-radius:12px;
+  background:rgba(212,175,55,.15);color:#f4d068;border:1px solid rgba(212,175,55,.3);
+  font-weight:600;
+}
+.wa-card-num{
+  font-size:13.5px;font-weight:800;color:#7dffb2;letter-spacing:.4px;
+  margin-bottom:2px;font-family:system-ui,-apple-system,sans-serif;
+}
+.wa-card-sub{
+  font-size:11.5px;color:#8fa1be;line-height:1.4;
+}
+.wa-card-action{flex-shrink:0}
+.wa-card-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:8px 14px;border-radius:24px;
+  background:linear-gradient(135deg,#25d366,#0ea44a);
+  color:#fff;font-size:12.5px;font-weight:800;
+  box-shadow:0 4px 14px rgba(37,211,102,.35);
+  transition:transform .2s,box-shadow .2s;
+}
+.wa-card:hover .wa-card-btn{
+  transform:scale(1.05);
+  box-shadow:0 6px 18px rgba(37,211,102,.55);
+}
+.wa-card-btn svg{transform:rotate(180deg);transition:transform .2s}
+.wa-card:hover .wa-card-btn svg{transform:rotate(180deg) translateX(3px)}
+.wa-modal-footer{
+  margin-top:16px;padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.07);
+  font-size:11.5px;color:#7f91ad;
+}
+
+/* فوتر - استایل اختصاصی برای هر دو پشتیبان */
+.footer-wa-block{margin-top:12px}
+.footer-wa-title{font-size:13px;font-weight:700;color:#d0dceb;margin-bottom:6px}
+.footer-wa-items{
+  display:flex;flex-direction:column;gap:8px;
+}
+.footer-wa-item{
+  display:inline-flex;align-items:center;gap:8px;color:#7dffb2;font-weight:700;
+  padding:4px 0;transition:.3s;font-size:13px;text-decoration:none;
+}
+.footer-wa-item:hover{color:#fff;text-shadow:0 0 12px #25d366}
+.footer-wa-badge{
+  font-size:11px;padding:2px 8px;border-radius:10px;
+  background:rgba(37,211,102,.12);color:#7dffb2;border:1px solid rgba(37,211,102,.25);
+  font-weight:700;
+}
+
+
+@media(max-width:420px){
+  .wa-modal-dialog{padding:24px 15px 18px;border-radius:20px}
+  .wa-modal-title{font-size:18px}
+  .wa-modal-desc{font-size:12px;margin-bottom:16px}
+  .wa-card{gap:9px;padding:12px 10px;border-radius:15px}
+  .wa-card-avatar{width:39px;height:39px;border-radius:12px;font-size:15px}
+  .wa-card-name{font-size:13.5px}
+  .wa-card-tag{font-size:10px;padding:2px 6px}
+  .wa-card-num{font-size:12px}
+  .wa-card-sub{font-size:10.5px}
+  .wa-card-btn{padding:7px 10px;font-size:11.5px}
+  .wa-card-btn svg{width:14px;height:14px}
+}
+
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -828,7 +1005,7 @@ footer h3{color:#e4c994}
         <span class="ticker-box"><span class="ticker-word" id="tickerWord">تحویل و دریافت مدارک</span></span>
         <span class="ticker-dots" id="tickerDots" aria-hidden="true"></span>
       </div>
-      <a class="cta-wa" href="https://wa.me/989965552604?text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%88%20%D9%88%D9%82%D8%AA%20%D8%A8%D8%AE%DB%8C%D8%B1%20%F0%9F%8C%BF%0A%D8%A7%D8%B2%20%D8%B7%D8%B1%DB%8C%D9%82%20%D9%88%D8%A8%E2%80%8C%D8%B3%D8%A7%DB%8C%D8%AA%20Ashibaba%20%D8%A8%D8%A7%20%D8%B4%D9%85%D8%A7%20%D8%AF%D8%B1%20%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7%20%D9%87%D8%B3%D8%AA%D9%85%20%D9%88%20%D9%85%D8%A7%DB%8C%D9%84%D9%85%20%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D8%AE%D9%88%D8%AF%20%D8%B1%D8%A7%20%D8%AB%D8%A8%D8%AA%20%DA%A9%D9%86%D9%85.%0A%0A%E2%96%AB%EF%B8%8F%20%D9%86%D9%88%D8%B9%20%D8%AE%D8%AF%D9%85%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%B4%D9%87%D8%B1%20%2F%20%DA%A9%D8%B4%D9%88%D8%B1%20%D9%85%D8%AD%D9%84%20%D8%B3%DA%A9%D9%88%D9%86%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%AA%D9%88%D8%B6%DB%8C%D8%AD%D8%A7%D8%AA%20%28%D8%AF%D8%B1%20%D8%B5%D9%88%D8%B1%D8%AA%20%D9%86%DB%8C%D8%A7%D8%B2%D8%8C%20%D8%B9%DA%A9%D8%B3%20%DB%8C%D8%A7%20%D9%84%DB%8C%D9%86%DA%A9%20%D9%87%D9%85%20%D8%A7%D8%B1%D8%B3%D8%A7%D9%84%20%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D9%85%29%3A%0A%0A%D8%B3%D9%BE%D8%A7%D8%B3%20%D8%A7%D8%B2%20%D9%87%D9%85%D8%B1%D8%A7%D9%87%DB%8C%20%D8%B4%D9%85%D8%A7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>ثبت سفارش در واتساپ</span></a>
+      <a class="cta-wa" href="#whatsapp-support" data-open-wa="true" role="button" aria-haspopup="dialog" aria-label="انتخاب پشتیبان و ثبت سفارش در واتساپ"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>ثبت سفارش در واتساپ</span></a>
     </div>
     <div class="hero-visual">
       <div class="emblem">
@@ -1017,7 +1194,7 @@ footer h3{color:#e4c994}
       <div class="promise reveal"><b>✓</b><strong>صداقت در وعده</strong><span>کاری که نشود انجام داد را صادقانه می‌گوییم.</span></div>
     </div>
 
-    <a class="cta-wa team-cta reveal" href="https://wa.me/989965552604?text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%88%20%D9%88%D9%82%D8%AA%20%D8%A8%D8%AE%DB%8C%D8%B1%20%F0%9F%8C%BF%0A%D8%A7%D8%B2%20%D8%B7%D8%B1%DB%8C%D9%82%20%D9%88%D8%A8%E2%80%8C%D8%B3%D8%A7%DB%8C%D8%AA%20Ashibaba%20%D8%A8%D8%A7%20%D8%B4%D9%85%D8%A7%20%D8%AF%D8%B1%20%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7%20%D9%87%D8%B3%D8%AA%D9%85%20%D9%88%20%D9%85%D8%A7%DB%8C%D9%84%D9%85%20%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D8%AE%D9%88%D8%AF%20%D8%B1%D8%A7%20%D8%AB%D8%A8%D8%AA%20%DA%A9%D9%86%D9%85.%0A%0A%E2%96%AB%EF%B8%8F%20%D9%86%D9%88%D8%B9%20%D8%AE%D8%AF%D9%85%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%B4%D9%87%D8%B1%20%2F%20%DA%A9%D8%B4%D9%88%D8%B1%20%D9%85%D8%AD%D9%84%20%D8%B3%DA%A9%D9%88%D9%86%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%AA%D9%88%D8%B6%DB%8C%D8%AD%D8%A7%D8%AA%20%28%D8%AF%D8%B1%20%D8%B5%D9%88%D8%B1%D8%AA%20%D9%86%DB%8C%D8%A7%D8%B2%D8%8C%20%D8%B9%DA%A9%D8%B3%20%DB%8C%D8%A7%20%D9%84%DB%8C%D9%86%DA%A9%20%D9%87%D9%85%20%D8%A7%D8%B1%D8%B3%D8%A7%D9%84%20%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D9%85%29%3A%0A%0A%D8%B3%D9%BE%D8%A7%D8%B3%20%D8%A7%D8%B2%20%D9%87%D9%85%D8%B1%D8%A7%D9%87%DB%8C%20%D8%B4%D9%85%D8%A7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>مستقیم با ما صحبت کنید</span></a>
+    <a class="cta-wa team-cta reveal" href="#whatsapp-support" data-open-wa="true" role="button" aria-haspopup="dialog" aria-label="انتخاب پشتیبان و صحبت مستقیم در واتساپ"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>مستقیم با ما صحبت کنید</span></a>
     <a class="back-home reveal" href="#home">← بازگشت به صفحه اصلی</a>
   </div>
 </section>
@@ -1038,7 +1215,21 @@ footer h3{color:#e4c994}
         <h3>تعهد ما</h3>
         <p>خدمات بر اساس نوع درخواست، امکان اجرایی و قوانین جاری مشخص می‌شوند. امور نیازمند وکالت یا مجوز خاص، مستلزم مدارک معتبر هستند.</p>
         <p>هزینه خرید کالا، حمل‌ونقل و سایر مخارج جانبی، حسب مورد جداگانه هماهنگ می‌شوند.</p>
-        <p>سفارش و پیگیری در واتساپ:<br><a class="footer-wa" href="https://wa.me/989965552604?text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%88%20%D9%88%D9%82%D8%AA%20%D8%A8%D8%AE%DB%8C%D8%B1%20%F0%9F%8C%BF%0A%D8%A7%D8%B2%20%D8%B7%D8%B1%DB%8C%D9%82%20%D9%88%D8%A8%E2%80%8C%D8%B3%D8%A7%DB%8C%D8%AA%20Ashibaba%20%D8%A8%D8%A7%20%D8%B4%D9%85%D8%A7%20%D8%AF%D8%B1%20%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7%20%D9%87%D8%B3%D8%AA%D9%85%20%D9%88%20%D9%85%D8%A7%DB%8C%D9%84%D9%85%20%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D8%AE%D9%88%D8%AF%20%D8%B1%D8%A7%20%D8%AB%D8%A8%D8%AA%20%DA%A9%D9%86%D9%85.%0A%0A%E2%96%AB%EF%B8%8F%20%D9%86%D9%88%D8%B9%20%D8%AE%D8%AF%D9%85%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%B4%D9%87%D8%B1%20%2F%20%DA%A9%D8%B4%D9%88%D8%B1%20%D9%85%D8%AD%D9%84%20%D8%B3%DA%A9%D9%88%D9%86%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%AA%D9%88%D8%B6%DB%8C%D8%AD%D8%A7%D8%AA%20%28%D8%AF%D8%B1%20%D8%B5%D9%88%D8%B1%D8%AA%20%D9%86%DB%8C%D8%A7%D8%B2%D8%8C%20%D8%B9%DA%A9%D8%B3%20%DB%8C%D8%A7%20%D9%84%DB%8C%D9%86%DA%A9%20%D9%87%D9%85%20%D8%A7%D8%B1%D8%B3%D8%A7%D9%84%20%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D9%85%29%3A%0A%0A%D8%B3%D9%BE%D8%A7%D8%B3%20%D8%A7%D8%B2%20%D9%87%D9%85%D8%B1%D8%A7%D9%87%DB%8C%20%D8%B4%D9%85%D8%A7" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span class="wa-num" dir="ltr">+98 996 555 2604</span></a></p>
+        <div class="footer-wa-block">
+        <div class="footer-wa-title">سفارش و پیگیری در واتساپ:</div>
+        <div class="footer-wa-items">
+          <a class="footer-wa-item" href="https://wa.me/989967056568?text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%88%20%D9%88%D9%82%D8%AA%20%D8%A8%D8%AE%DB%8C%D8%B1%20%F0%9F%8C%BF%0A%D8%A7%D8%B2%20%D8%B7%D8%B1%DB%8C%D9%82%20%D9%88%D8%A8%E2%80%8C%D8%B3%D8%A7%DB%8C%D8%AA%20Ashibaba%20%D8%A8%D8%A7%20%D8%B4%D9%85%D8%A7%20%D8%AF%D8%B1%20%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7%20%D9%87%D8%B3%D8%AA%D9%85%20%D9%88%20%D9%85%D8%A7%DB%8C%D9%84%D9%85%20%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D8%AE%D9%88%D8%AF%20%D8%B1%D8%A7%20%D8%AB%D8%A8%D8%AA%20%DA%A9%D9%86%D9%85.%0A%0A%E2%96%AB%EF%B8%8F%20%D9%86%D9%88%D8%B9%20%D8%AE%D8%AF%D9%85%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%B4%D9%87%D8%B1%20%2F%20%DA%A9%D8%B4%D9%88%D8%B1%20%D9%85%D8%AD%D9%84%20%D8%B3%DA%A9%D9%88%D9%86%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%AA%D9%88%D8%B6%DB%8C%D8%AD%D8%A7%D8%AA%20%28%D8%AF%D8%B1%20%D8%B5%D9%88%D8%B1%D8%AA%20%D9%86%DB%8C%D8%A7%D8%B2%D8%8C%20%D8%B9%DA%A9%D8%B3%20%DB%8C%D8%A7%20%D9%84%DB%8C%D9%86%DA%A9%20%D9%87%D9%85%20%D8%A7%D8%B1%D8%B3%D8%A7%D9%84%20%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D9%85%29%3A%0A%0A%D8%B3%D9%BE%D8%A7%D8%B3%20%D8%A7%D8%B2%20%D9%87%D9%85%D8%B1%D8%A7%D9%87%DB%8C%20%D8%B4%D9%85%D8%A7" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span class="footer-wa-badge">پشتیبان ۱</span>
+            <span class="wa-num" dir="ltr">+98 996 705 6568</span>
+          </a>
+          <a class="footer-wa-item" href="https://wa.me/989965552604?text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%88%20%D9%88%D9%82%D8%AA%20%D8%A8%D8%AE%DB%8C%D8%B1%20%F0%9F%8C%BF%0A%D8%A7%D8%B2%20%D8%B7%D8%B1%DB%8C%D9%82%20%D9%88%D8%A8%E2%80%8C%D8%B3%D8%A7%DB%8C%D8%AA%20Ashibaba%20%D8%A8%D8%A7%20%D8%B4%D9%85%D8%A7%20%D8%AF%D8%B1%20%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7%20%D9%87%D8%B3%D8%AA%D9%85%20%D9%88%20%D9%85%D8%A7%DB%8C%D9%84%D9%85%20%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D8%AE%D9%88%D8%AF%20%D8%B1%D8%A7%20%D8%AB%D8%A8%D8%AA%20%DA%A9%D9%86%D9%85.%0A%0A%E2%96%AB%EF%B8%8F%20%D9%86%D9%88%D8%B9%20%D8%AE%D8%AF%D9%85%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%B4%D9%87%D8%B1%20%2F%20%DA%A9%D8%B4%D9%88%D8%B1%20%D9%85%D8%AD%D9%84%20%D8%B3%DA%A9%D9%88%D9%86%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%AA%D9%88%D8%B6%DB%8C%D8%AD%D8%A7%D8%AA%20%28%D8%AF%D8%B1%20%D8%B5%D9%88%D8%B1%D8%AA%20%D9%86%DB%8C%D8%A7%D8%B2%D8%8C%20%D8%B9%DA%A9%D8%B3%20%DB%8C%D8%A7%20%D9%84%DB%8C%D9%86%DA%A9%20%D9%87%D9%85%20%D8%A7%D8%B1%D8%B3%D8%A7%D9%84%20%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D9%85%29%3A%0A%0A%D8%B3%D9%BE%D8%A7%D8%B3%20%D8%A7%D8%B2%20%D9%87%D9%85%D8%B1%D8%A7%D9%87%DB%8C%20%D8%B4%D9%85%D8%A7" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span class="footer-wa-badge">پشتیبان ۲</span>
+            <span class="wa-num" dir="ltr">+98 996 555 2604</span>
+          </a>
+        </div>
+      </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1048,7 +1239,7 @@ footer h3{color:#e4c994}
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/989965552604?text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%88%20%D9%88%D9%82%D8%AA%20%D8%A8%D8%AE%DB%8C%D8%B1%20%F0%9F%8C%BF%0A%D8%A7%D8%B2%20%D8%B7%D8%B1%DB%8C%D9%82%20%D9%88%D8%A8%E2%80%8C%D8%B3%D8%A7%DB%8C%D8%AA%20Ashibaba%20%D8%A8%D8%A7%20%D8%B4%D9%85%D8%A7%20%D8%AF%D8%B1%20%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7%20%D9%87%D8%B3%D8%AA%D9%85%20%D9%88%20%D9%85%D8%A7%DB%8C%D9%84%D9%85%20%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D8%AE%D9%88%D8%AF%20%D8%B1%D8%A7%20%D8%AB%D8%A8%D8%AA%20%DA%A9%D9%86%D9%85.%0A%0A%E2%96%AB%EF%B8%8F%20%D9%86%D9%88%D8%B9%20%D8%AE%D8%AF%D9%85%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%B4%D9%87%D8%B1%20%2F%20%DA%A9%D8%B4%D9%88%D8%B1%20%D9%85%D8%AD%D9%84%20%D8%B3%DA%A9%D9%88%D9%86%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%AA%D9%88%D8%B6%DB%8C%D8%AD%D8%A7%D8%AA%20%28%D8%AF%D8%B1%20%D8%B5%D9%88%D8%B1%D8%AA%20%D9%86%DB%8C%D8%A7%D8%B2%D8%8C%20%D8%B9%DA%A9%D8%B3%20%DB%8C%D8%A7%20%D9%84%DB%8C%D9%86%DA%A9%20%D9%87%D9%85%20%D8%A7%D8%B1%D8%B3%D8%A7%D9%84%20%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D9%85%29%3A%0A%0A%D8%B3%D9%BE%D8%A7%D8%B3%20%D8%A7%D8%B2%20%D9%87%D9%85%D8%B1%D8%A7%D9%87%DB%8C%20%D8%B4%D9%85%D8%A7" target="_blank" rel="noopener" aria-label="سفارش و پیگیری در واتساپ">
+<a class="wa-float" href="#whatsapp-support" data-open-wa="true" role="button" aria-haspopup="dialog" aria-label="سفارش و پیگیری در واتساپ">
   <span class="wa-btn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span class="wa-dot"></span></span>
   <span class="wa-label">سفارش و پیگیری در واتساپ<small>● آنلاین · پاسخ سریع</small></span>
 </a>
@@ -1172,5 +1363,129 @@ footer h3{color:#e4c994}
   if(location.hash === '#about-us'){ route(); }
 })();
 </script>
+
+<!-- ===== پنجره انتخاب پشتیبان واتساپ (مودال مدرن) ===== -->
+<div class="wa-modal-backdrop" id="waModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
+  <div class="wa-modal-dialog">
+    <button type="button" class="wa-modal-close" id="waModalClose" aria-label="بستن پنجره">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    
+    <div class="wa-modal-header">
+      <div class="wa-modal-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.9L2.3 21.8l4.8-1.3A9.8 9.8 0 1 0 12 2.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          <path fill="currentColor" transform="translate(5.4 5.2) scale(.55)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+        <span class="wa-modal-status-dot"></span>
+      </div>
+      <div class="wa-modal-badge">● آنلاین و پاسخگوی سریع</div>
+      <h3 id="waModalTitle" class="wa-modal-title">ارتباط با پشتیبانی واتساپ</h3>
+      <p class="wa-modal-desc">جهت ثبت سفارش، استعلام یا پیگیری، با هر کدام از پشتیبان‌ها که مایلید گفتگو کنید:</p>
+    </div>
+
+    <div class="wa-modal-cards">
+      <!-- پشتیبان ۱ -->
+      <a class="wa-card" href="https://wa.me/989967056568?text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%88%20%D9%88%D9%82%D8%AA%20%D8%A8%D8%AE%DB%8C%D8%B1%20%F0%9F%8C%BF%0A%D8%A7%D8%B2%20%D8%B7%D8%B1%DB%8C%D9%82%20%D9%88%D8%A8%E2%80%8C%D8%B3%D8%A7%DB%8C%D8%AA%20Ashibaba%20%D8%A8%D8%A7%20%D8%B4%D9%85%D8%A7%20%D8%AF%D8%B1%20%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7%20%D9%87%D8%B3%D8%AA%D9%85%20%D9%88%20%D9%85%D8%A7%DB%8C%D9%84%D9%85%20%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D8%AE%D9%88%D8%AF%20%D8%B1%D8%A7%20%D8%AB%D8%A8%D8%AA%20%DA%A9%D9%86%D9%85.%0A%0A%E2%96%AB%EF%B8%8F%20%D9%86%D9%88%D8%B9%20%D8%AE%D8%AF%D9%85%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%B4%D9%87%D8%B1%20%2F%20%DA%A9%D8%B4%D9%88%D8%B1%20%D9%85%D8%AD%D9%84%20%D8%B3%DA%A9%D9%88%D9%86%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%AA%D9%88%D8%B6%DB%8C%D8%AD%D8%A7%D8%AA%20%28%D8%AF%D8%B1%20%D8%B5%D9%88%D8%B1%D8%AA%20%D9%86%DB%8C%D8%A7%D8%B2%D8%8C%20%D8%B9%DA%A9%D8%B3%20%DB%8C%D8%A7%20%D9%84%DB%8C%D9%86%DA%A9%20%D9%87%D9%85%20%D8%A7%D8%B1%D8%B3%D8%A7%D9%84%20%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D9%85%29%3A%0A%0A%D8%B3%D9%BE%D8%A7%D8%B3%20%D8%A7%D8%B2%20%D9%87%D9%85%D8%B1%D8%A7%D9%87%DB%8C%20%D8%B4%D9%85%D8%A7" target="_blank" rel="noopener">
+        <div class="wa-card-avatar">
+          <span>۱</span>
+          <i class="wa-online-indicator" title="آنلاین"></i>
+        </div>
+        <div class="wa-card-info">
+          <div class="wa-card-role-row">
+            <strong class="wa-card-name">پشتیبان ۱</strong>
+            <span class="wa-card-tag">ثبت سفارش و پیگیری</span>
+          </div>
+          <div class="wa-card-num" dir="ltr">+98 996 705 6568</div>
+          <div class="wa-card-sub">پاسخگویی سریع به امور و استعلام درخواست‌ها</div>
+        </div>
+        <div class="wa-card-action">
+          <span class="wa-card-btn">
+            <span>گفتگو</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- پشتیبان ۲ -->
+      <a class="wa-card" href="https://wa.me/989965552604?text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%88%20%D9%88%D9%82%D8%AA%20%D8%A8%D8%AE%DB%8C%D8%B1%20%F0%9F%8C%BF%0A%D8%A7%D8%B2%20%D8%B7%D8%B1%DB%8C%D9%82%20%D9%88%D8%A8%E2%80%8C%D8%B3%D8%A7%DB%8C%D8%AA%20Ashibaba%20%D8%A8%D8%A7%20%D8%B4%D9%85%D8%A7%20%D8%AF%D8%B1%20%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7%20%D9%87%D8%B3%D8%AA%D9%85%20%D9%88%20%D9%85%D8%A7%DB%8C%D9%84%D9%85%20%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D8%AE%D9%88%D8%AF%20%D8%B1%D8%A7%20%D8%AB%D8%A8%D8%AA%20%DA%A9%D9%86%D9%85.%0A%0A%E2%96%AB%EF%B8%8F%20%D9%86%D9%88%D8%B9%20%D8%AE%D8%AF%D9%85%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%B4%D9%87%D8%B1%20%2F%20%DA%A9%D8%B4%D9%88%D8%B1%20%D9%85%D8%AD%D9%84%20%D8%B3%DA%A9%D9%88%D9%86%D8%AA%3A%0A%E2%96%AB%EF%B8%8F%20%D8%AA%D9%88%D8%B6%DB%8C%D8%AD%D8%A7%D8%AA%20%28%D8%AF%D8%B1%20%D8%B5%D9%88%D8%B1%D8%AA%20%D9%86%DB%8C%D8%A7%D8%B2%D8%8C%20%D8%B9%DA%A9%D8%B3%20%DB%8C%D8%A7%20%D9%84%DB%8C%D9%86%DA%A9%20%D9%87%D9%85%20%D8%A7%D8%B1%D8%B3%D8%A7%D9%84%20%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D9%85%29%3A%0A%0A%D8%B3%D9%BE%D8%A7%D8%B3%20%D8%A7%D8%B2%20%D9%87%D9%85%D8%B1%D8%A7%D9%87%DB%8C%20%D8%B4%D9%85%D8%A7" target="_blank" rel="noopener">
+        <div class="wa-card-avatar">
+          <span>۲</span>
+          <i class="wa-online-indicator" title="آنلاین"></i>
+        </div>
+        <div class="wa-card-info">
+          <div class="wa-card-role-row">
+            <strong class="wa-card-name">پشتیبان ۲</strong>
+            <span class="wa-card-tag">پشتیبانی و هماهنگی</span>
+          </div>
+          <div class="wa-card-num" dir="ltr">+98 996 555 2604</div>
+          <div class="wa-card-sub">هماهنگی کارهای اجرایی، خرید و مراجعات در تهران</div>
+        </div>
+        <div class="wa-card-action">
+          <span class="wa-card-btn">
+            <span>گفتگو</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <div class="wa-modal-footer">
+      <span>🔒 ارتباط مستقیم، بدون واسطه و امن در واتساپ</span>
+    </div>
+  </div>
+</div>
+
+<script>
+/* مدیریت پنجره پاپ‌آپ انتخاب پشتیبان واتساپ */
+(function(){
+  var modal = document.getElementById('waModal');
+  var closeBtn = document.getElementById('waModalClose');
+  if(!modal) return;
+
+  function openModal(e){
+    if(e) e.preventDefault();
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // دکمه‌های هیرو، صفحه درباره ما و دکمه شناور
+  document.querySelectorAll('[data-open-wa="true"], .cta-wa, .wa-float').forEach(function(el){
+    if(!el.closest('#waModal') && !el.closest('footer')){
+      el.addEventListener('click', openModal);
+    }
+  });
+
+  if(closeBtn){
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  modal.addEventListener('click', function(e){
+    if(e.target === modal){
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('open')){
+      closeModal();
+    }
+  });
+
+  modal.querySelectorAll('.wa-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      setTimeout(closeModal, 400);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
